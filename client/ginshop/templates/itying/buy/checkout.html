@@ -82,12 +82,12 @@
 						</div>
 
 						<div class="col col-price">
-							{{$value.Price}}元 x {{$value.Num}} </div>
+							{{printf "%.2f" $value.Price}}元 x {{$value.Num}} </div>
 						<div class="col col-status">
 							&nbsp;
 						</div>
 						<div class="col col-total">
-							{{Mul $value.Price $value.Num}}元
+							{{printf "%.2f" (Mul $value.Price $value.Num)}}元
 						</div>
 					</li>
 					{{end}}
@@ -168,7 +168,7 @@
 					</li>
 					<li class="clearfix">
 						<label>商品总价：</label>
-						<span class="val">{{.allPrice}}元</span>
+						<span class="val">{{printf "%.2f" .allPrice}}元</span>
 					</li>
 					<li class="clearfix">
 						<label>活动优惠：</label>
@@ -184,7 +184,7 @@
 					</li>
 					<li class="clearfix total-price">
 						<label>应付总额：</label>
-						<span class="val"><em data-id="J_totalPrice">{{.allPrice}}</em>元</span>
+						<span class="val"><em data-id="J_totalPrice">{{printf "%.2f" .allPrice}}</em>元</span>
 					</li>
 				</ul>
 			</div>

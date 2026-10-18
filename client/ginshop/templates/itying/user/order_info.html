@@ -123,7 +123,7 @@
 													</p>
 												</td>
 												<td class="col col-price">
-													<p class="price">{{$v.ProductPrice}}元 × {{$v.ProductNum}}</p>
+													<p class="price">{{printf "%.2f" $v.ProductPrice}}元 × {{$v.ProductNum}}</p>
 												</td>
 												<td class="col col-actions">
 
@@ -202,12 +202,12 @@
 										<tbody>
 											<tr>
 												<th>商品总价：</th>
-												<td><span class="num">{{.order.AllPrice}}</span>元</td>
+												<td><span class="num">{{printf "%.2f" .order.AllPrice}}</span>元</td>
 											</tr>
 											
 											<tr>
 												<th class="total">实付金额：</th>
-												<td class="total"><span class="num">{{.order.AllPrice}}</span>元</td>
+												<td class="total"><span class="num">{{printf "%.2f" .order.AllPrice}}</span>元</td>
 											</tr>
 
 										</tbody>

@@ -17,16 +17,22 @@ func (con CartController) Get(c *gin.Context) {
 	models.Cookie.Get(c, "cartList", &cartList)
 
 	var allPrice float64
+	totalNum := 0   // 购物车总件数
+	checkedNum := 0 // 已勾选件数
 
 	for i := 0; i < len(cartList); i++ {
+		totalNum += cartList[i].Num
 		if cartList[i].Checked {
 			allPrice += cartList[i].Price * float64(cartList[i].Num)
+			checkedNum += cartList[i].Num
 		}
 	}
 	var tpl = "itying/cart/cart.html"
 	con.Render(c, tpl, gin.H{
-		"cartList": cartList,
-		"allPrice": allPrice,
+		"cartList":   cartList,
+		"allPrice":   allPrice,
+		"totalNum":   totalNum,
+		"checkedNum": checkedNum,
 	})
 
 }

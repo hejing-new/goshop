@@ -65,7 +65,7 @@
 											{{end}}
 										</h2>
 										{{$value.AddTime | UnixToTime}} | {{$value.Name}} | 订单号：{{$value.OrderId}} | 在线支付
-										实付金额：{{$value.AllPrice}} 元
+										实付金额：{{printf "%.2f" $value.AllPrice}} 元
 
 									</div>
 									{{range $k,$v := $value.OrderItem}}
@@ -75,8 +75,8 @@
 											</div>
 											<div class="col_title">
 												<p>{{$v.ProductTitle}}</p>
-												<p>{{$v.ProductPrice}}元 × {{$v.ProductNum}}</p>
-												<p>合计：{{Mul $v.ProductPrice $v.ProductNum}}元</p>
+												<p>{{printf "%.2f" $v.ProductPrice}}元 × {{$v.ProductNum}}</p>
+												<p>合计：{{printf "%.2f" (Mul $v.ProductPrice $v.ProductNum)}}元</p>
 											</div>
 										</div>
 									{{end}}

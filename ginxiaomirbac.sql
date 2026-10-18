@@ -10,8 +10,6 @@
  Target Server Type    : MySQL
  Target Server Version : 80020
  File Encoding         : 65001
-
- Date: 12/05/2022 19:40:12
 */
 
 SET NAMES utf8mb4;
@@ -22,16 +20,16 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `access`;
 CREATE TABLE `access`  (
-  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `module_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0',
   `type` tinyint(1) NULL DEFAULT NULL,
   `action_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `module_id` int(0) NULL DEFAULT NULL,
-  `sort` int(0) NULL DEFAULT NULL,
+  `module_id` int NULL DEFAULT NULL,
+  `sort` int NULL DEFAULT NULL,
   `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `add_time` int(0) NULL DEFAULT NULL,
-  `status` int(0) NULL DEFAULT NULL,
+  `add_time` int NULL DEFAULT NULL,
+  `status` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 118 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
@@ -99,14 +97,14 @@ INSERT INTO `access` VALUES (113, '系统设置', 2, '商店设置', 'setting', 
 -- ----------------------------
 DROP TABLE IF EXISTS `manager`;
 CREATE TABLE `manager`  (
-  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `password` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `mobile` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `status` tinyint(1) NULL DEFAULT NULL,
-  `role_id` int(0) NULL DEFAULT NULL,
-  `add_time` int(0) NULL DEFAULT NULL,
+  `role_id` int NULL DEFAULT NULL,
+  `add_time` int NULL DEFAULT NULL,
   `is_super` tinyint(1) NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `role_id`(`role_id`) USING BTREE
@@ -124,13 +122,13 @@ INSERT INTO `manager` VALUES (6, 'lisi', 'e10adc3949ba59abbe56e057f20f883e', '15
 -- ----------------------------
 DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role`  (
-  `id` int(0) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `status` tinyint(1) NULL DEFAULT NULL,
-  `add_time` int(0) NULL DEFAULT NULL,
+  `add_time` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of role
@@ -144,8 +142,8 @@ INSERT INTO `role` VALUES (16, '销售部门3', '销售部门', 1, 1631589828);
 -- ----------------------------
 DROP TABLE IF EXISTS `role_access`;
 CREATE TABLE `role_access`  (
-  `role_id` int(0) NOT NULL,
-  `access_id` int(0) NOT NULL,
+  `role_id` int NOT NULL,
+  `access_id` int NOT NULL,
   INDEX `role_id`(`role_id`) USING BTREE,
   INDEX `access_id`(`access_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;

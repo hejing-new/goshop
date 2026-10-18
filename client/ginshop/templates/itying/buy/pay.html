@@ -26,7 +26,7 @@
 				</div>
 				<div class="fr">
 					<p class="total">
-						应付总额：<span class="money"><em>1000元</em>元</span>
+						应付总额：<span class="money"><em>{{printf "%.2f" .order.AllPrice}}</em>元</span>
 					</p>
 					<br>
 					<br>
@@ -53,7 +53,7 @@
 						<div class="content">
 							{{range $key,$value:=.orderItems}}
 							<p>{{$value.ProductTitle}} {{$value.GoodsVersion}} {{$value.GoodsColor}}
-								数量：{{$value.ProductNum}} 价格：{{$value.ProductPrice}}</p>
+								数量：{{$value.ProductNum}} 价格：{{printf "%.2f" $value.ProductPrice}}</p>
 							{{end}}
 						</div>
 					</li>

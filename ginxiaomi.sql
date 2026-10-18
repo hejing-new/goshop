@@ -10,8 +10,6 @@
  Target Server Type    : MySQL
  Target Server Version : 80020
  File Encoding         : 65001
-
- Date: 12/05/2022 19:40:04
 */
 
 SET NAMES utf8mb4;
@@ -60,10 +58,10 @@ CREATE TABLE `focus`  (
 -- ----------------------------
 -- Records of focus
 -- ----------------------------
-INSERT INTO `focus` VALUES (14, '小米手机', 1, 'static/upload/20211101/1635757964474199700.jpg', 'http://www.itying.com', 1115, 1, 1631677671);
-INSERT INTO `focus` VALUES (16, '小米电视1111', 1, 'static/upload/20211101/1635757979944161500.jpg', 'http://a.itying.com', 1222, 1, 1631679244);
-INSERT INTO `focus` VALUES (17, 'ces', 1, 'static/upload/20211101/1635758018523031700.jpg', 'http://www.itying.com', 100, 1, 1635758011);
-INSERT INTO `focus` VALUES (18, 'testtest', 1, 'static/upload/20211102/1635817134986870600.png', 'http://www.itying.com', 100, 1, 1635817134);
+INSERT INTO `focus` VALUES (14, '小米手机', 1, 'static/upload/20211101/1635757964474199700.jpg', '/', 1115, 1, 1631677671);
+INSERT INTO `focus` VALUES (16, '小米电视1111', 1, 'static/upload/20211101/1635757979944161500.jpg', '/', 1222, 1, 1631679244);
+INSERT INTO `focus` VALUES (17, 'ces', 1, 'static/upload/20211101/1635758018523031700.jpg', '/', 100, 1, 1635758011);
+INSERT INTO `focus` VALUES (18, 'testtest', 1, 'static/upload/20211102/1635817134986870600.png', '/', 100, 1, 1635817134);
 
 -- ----------------------------
 -- Table structure for goods
@@ -218,7 +216,7 @@ CREATE TABLE `goods_cate`  (
 -- ----------------------------
 INSERT INTO `goods_cate` VALUES (1, '手机', '', '', '', 0, '手机', '手机', '手机', 1, '10', 1582461745);
 INSERT INTO `goods_cate` VALUES (2, '小米11 Pro--22', 'static/upload/2020223/1582463294.png', '', 'itying/product/aaa.html', 1, '小米10 Pro', '小米10 Pro', '小米10 Pro', 1, '0', 1582463294);
-INSERT INTO `goods_cate` VALUES (3, 'Redmi 8', 'static/upload/2020223/1582463357.png', 'http://www.itying.com', '11', 1, 'Redmi 8 11', 'Redmi 8 111', 'Redmi 8 111', 1, '11', 1582463357);
+INSERT INTO `goods_cate` VALUES (3, 'Redmi 8', 'static/upload/2020223/1582463357.png', '', '11', 1, 'Redmi 8 11', 'Redmi 8 111', 'Redmi 8 111', 1, '11', 1582463357);
 INSERT INTO `goods_cate` VALUES (4, '电视 笔记本', '', '', '', 0, '电视 盒子', '电视 盒子', '电视 盒子', 1, '0', 1582463515);
 INSERT INTO `goods_cate` VALUES (5, '小米电视5 55英寸', 'static/upload/2020223/1582464603.png', '', '', 4, '小米电视5 55英寸', '小米电视5 55英寸', '小米电视5 55英寸', 1, '0', 1582464603);
 INSERT INTO `goods_cate` VALUES (6, '家电', '', '', 'itying/product/catetest.html', 0, '', '', '', 1, '0', 1582513219);
@@ -409,17 +407,17 @@ CREATE TABLE `nav`  (
 -- ----------------------------
 -- Records of nav
 -- ----------------------------
-INSERT INTO `nav` VALUES (1, '小米商城', 'http://www.itying.com', 2, 2, '19.20,22,23,24,53,36,38', 10, 1, 1592919226);
-INSERT INTO `nav` VALUES (2, 'MIUI', 'http://www.itying.com', 1, 1, '1', 10, 1, 1592921999);
+INSERT INTO `nav` VALUES (1, '小米商城', '/', 2, 2, '19.20,22,23,24,53,36,38', 10, 1, 1592919226);
+INSERT INTO `nav` VALUES (2, 'MIUI', '/', 1, 1, '1', 10, 1, 1592921999);
 INSERT INTO `nav` VALUES (3, '小米手机', 'https://shouji.mi.com/', 2, 2, '19,20,53,54', 10, 1, 1592922081);
 INSERT INTO `nav` VALUES (4, '小米电视', 'https://ds.mi.com/', 2, 2, '23,24', 10, 1, 1592922273);
-INSERT INTO `nav` VALUES (5, '路由器', 'http://bbs.itying.com', 2, 1, '25', 10, 1, 1592922331);
+INSERT INTO `nav` VALUES (5, '路由器', '/', 2, 1, '25', 10, 1, 1592922331);
 INSERT INTO `nav` VALUES (8, '云服务', 'https://i.mi.com/', 1, 2, '2', 10, 1, 1593529309);
 INSERT INTO `nav` VALUES (9, '金融', 'https://jr.mi.com/?from=micom', 1, 1, '1', 10, 1, 1593529329);
 INSERT INTO `nav` VALUES (10, '有品', 'https://youpin.mi.com/', 1, 1, '1', 10, 1, 1593529346);
 INSERT INTO `nav` VALUES (11, '家电', '', 2, 1, '1', 10, 1, 1593529451);
 INSERT INTO `nav` VALUES (12, '智能电视', '', 2, 1, '23', 10, 1, 1593529470);
-INSERT INTO `nav` VALUES (14, '小米帮助中心2', 'http://www.itying.com', 3, 2, '12,13,14', 10, 1, 1634788777);
+INSERT INTO `nav` VALUES (14, '小米帮助中心2', '/', 3, 2, '12,13,14', 10, 1, 1634788777);
 
 -- ----------------------------
 -- Table structure for order
