@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package rbac;
+
+option go_package = "./proto;rbac";
+
+service Rbac {
+	rpc Login(LoginRequest) returns (LoginResponse) {}
+}
+
+message ManagerModel{
+	int64 Id = 1;
+	string Username = 2;
+	string Password = 3;
+	string Mobile = 4;
+	string Email = 5;
+	int64 Status = 6;
+	int64 RoleId = 7;
+	int64 AddTime = 8;
+	int64 IsSuper = 9;
+}
+
+message LoginRequest{
+	string username = 1;
+	string password = 2;
+}
+
+message LoginResponse {
+	bool isLogin = 1;
+	repeated ManagerModel userlist = 2;
+}
+

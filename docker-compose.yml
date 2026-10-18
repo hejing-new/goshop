@@ -1,0 +1,73 @@
+version: '3'
+
+services:
+  # Consul服务注册中心
+  consul:
+    image: consul:latest
+    ports:
+      - "8500:8500"
+      - "8600:8600/udp"
+    command: agent -server -bootstrap -ui -node=server-1 -client=0.0.0.0
+    networks:
+      - xiaomishop-network
+
+  # RBAC服务
+  rbac:
+    build:
+      context: ./server/rbac
+      dockerfile: Dockerfile
+    depends_on:
+      - consul
+      - mysql
+    environment:
+      - MICRO_REGISTRY=consul
+      - MICRO_REGISTRY_ADDRESS=consul:8500
+    networks:
+      - xiaomishop-network
+
+  # 验证码服务
+  captcha:
+    build:
+      context: ./server/captcha
+      dockerfile: Dockerfile
+    depends_on:
+      - consul
+    environment:
+      - MICRO_REGISTRY=consul
+      - MICRO_REGISTRY_ADDRESS=consul:8500
+    networks:
+      - xiaomishop-network
+
+  # 验证码客户端服务
+  captcha-client:
+    build:
+      context: ./client/captcha-client
+      dockerfile: Dockerfile
+    depends_on:
+      - consul
+      - captcha
+    environment:
+      - MICRO_REGISTRY=consul
+      - MICRO_REGISTRY_ADDRESS=consul:8500
+    networks:
+      - xiaomishop-network
+
+  # MySQL数据库
+  mysql:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=xiaomishop
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - xiaomishop-network
+
+networks:
+  xiaomishop-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
